@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LinkHive - All View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .masonry-grid {
+            column-count: 1;
+            column-gap: var(--spacing-gutter, 24px);
+        }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        @media (min-width: 1440px) { .masonry-grid { column-count: 4; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: var(--spacing-gutter, 24px);
+        }
+
+        /* Subtle scrollbar for sidebar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 4px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-tint": "#5f5e5e",
+                            "on-secondary-fixed": "#1a1c1c",
+                            "on-primary-fixed": "#1c1b1b",
+                            "tertiary-fixed-dim": "#cac6c3",
+                            "secondary-fixed-dim": "#c6c6c7",
+                            "on-primary-fixed-variant": "#474646",
+                            "surface-bright": "#f9f9f9",
+                            "outline": "#747878",
+                            "on-surface-variant": "#444748",
+                            "surface-container-low": "#f3f3f3",
+                            "tertiary-container": "#1d1b1a",
+                            "surface-variant": "#e2e2e2",
+                            "on-primary-container": "#858383",
+                            "primary-fixed": "#e5e2e1",
+                            "error": "#ba1a1a",
+                            "inverse-surface": "#2f3131",
+                            "on-secondary": "#ffffff",
+                            "surface-container-high": "#e8e8e8",
+                            "on-error": "#ffffff",
+                            "surface-dim": "#dadada",
+                            "secondary": "#5d5f5f",
+                            "tertiary-fixed": "#e6e1df",
+                            "surface-container": "#eeeeee",
+                            "on-secondary-fixed-variant": "#454747",
+                            "surface-container-highest": "#e2e2e2",
+                            "on-tertiary-fixed-variant": "#484645",
+                            "error-container": "#ffdad6",
+                            "on-error-container": "#93000a",
+                            "on-background": "#1a1c1c",
+                            "tertiary": "#000000",
+                            "surface-container-lowest": "#ffffff",
+                            "secondary-fixed": "#e2e2e2",
+                            "secondary-container": "#dfe0e0",
+                            "inverse-primary": "#c9c6c5",
+                            "on-primary": "#ffffff",
+                            "on-tertiary-fixed": "#1d1b1a",
+                            "on-tertiary-container": "#868381",
+                            "on-secondary-container": "#616363",
+                            "on-tertiary": "#ffffff",
+                            "primary-container": "#1c1b1b",
+                            "background": "#f9f9f9",
+                            "primary": "#000000",
+                            "surface": "#f9f9f9",
+                            "outline-variant": "#c4c7c7",
+                            "on-surface": "#1a1c1c",
+                            "inverse-on-surface": "#f1f1f1",
+                            "primary-fixed-dim": "#c9c6c5"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "card_padding": "16px",
+                            "stack_gap": "12px",
+                            "container_max_width": "1440px",
+                            "margin": "32px",
+                            "gutter": "24px",
+                            "sidebar_width": "240px"
+                    },
+                    "fontFamily": {
+                            "body-medium": ["Inter"],
+                            "body-base": ["Inter"],
+                            "label-sm": ["Inter"],
+                            "display-hero": ["Inter"],
+                            "headline-md": ["Inter"],
+                            "label-xs": ["Inter"]
+                    },
+                    "fontSize": {
+                            "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                            "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                            "display-hero": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                            "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                            "label-xs": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex overflow-x-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="bg-surface-container border-r border-outline-variant w-sidebar_width h-screen fixed left-0 top-0 flex flex-col gap-stack_gap p-card_padding z-50 overflow-y-auto">
+<!-- Brand Header -->
+<div class="mb-4 mt-2 px-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="hive" style="font-variation-settings: 'FILL' 1;">hive</span>
+</div>
+<div>
+<h1 class="text-headline-md font-display-hero text-primary tracking-tight">LinkHive</h1>
+<p class="font-label-xs text-label-xs text-on-surface-variant">Refined Minimalism</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary text-on-primary rounded-full py-2.5 px-4 mb-4 font-body-medium text-body-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            + Add link
+        </button>
+<!-- Main Navigation -->
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 py-2 px-4 border-l-4 border-primary font-bold text-on-surface bg-surface-variant rounded-r-full scale-98 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+<span class="font-body-medium text-body-medium">All</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-medium border-l-4 border-transparent hover:bg-surface-variant hover:text-on-surface rounded-r-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-body-medium text-body-medium">Jobs</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-medium border-l-4 border-transparent hover:bg-surface-variant hover:text-on-surface rounded-r-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-medium text-body-medium">Socials</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-medium border-l-4 border-transparent hover:bg-surface-variant hover:text-on-surface rounded-r-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+<span class="font-body-medium text-body-medium">Videos</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-medium border-l-4 border-transparent hover:bg-surface-variant hover:text-on-surface rounded-r-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-body-medium text-body-medium">Articles</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-medium border-l-4 border-transparent hover:bg-surface-variant hover:text-on-surface rounded-r-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="folder_off">folder_off</span>
+<span class="font-body-medium text-body-medium">Uncategorized</span>
+</a>
+</nav>
+<!-- Footer Navigation -->
+<div class="mt-auto pt-4 border-t border-outline-variant/30">
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-medium hover:bg-surface-variant hover:text-on-surface rounded-r-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="push_pin">push_pin</span>
+<span class="font-label-sm text-label-sm">Pinned</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-medium hover:bg-surface-variant hover:text-on-surface rounded-r-full transition-colors active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+<span class="font-label-sm text-label-sm">Recent</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 ml-sidebar_width flex flex-col min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="h-20 sticky top-0 z-40 bg-surface/80 backdrop-blur-md shadow-sm flex items-center justify-between px-margin w-full">
+<!-- Hero Search Action -->
+<div class="flex-1 max-w-2xl group focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-20 transition-all rounded-full bg-surface-container-highest/50 flex items-center px-6 h-14 relative overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 text-[28px]" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none w-full font-display-hero text-display-hero text-on-surface placeholder:text-outline-variant placeholder:font-light" placeholder="Search across all your links..." type="text"/>
+<div class="absolute bottom-0 left-0 w-full h-[1px] bg-outline-variant/30 group-focus-within:bg-primary transition-colors"></div>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4 ml-6">
+<button aria-label="Layout" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<button aria-label="Sort" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="sort">sort</span>
+</button>
+<button class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30 hover:border-primary transition-colors ml-2">
+<div class="w-full h-full bg-primary-fixed-dim text-on-primary-container flex items-center justify-center font-headline-md text-headline-md">U</div>
+</button>
+</div>
+</header>
+<!-- Canvas / Main Feed -->
+<main class="flex-1 p-margin w-full max-w-container_max_width mx-auto">
+<div class="masonry-grid">
+<!-- Card 1: Jobs -->
+<article class="masonry-item group relative bg-surface-container-lowest rounded-xl p-card_padding border border-outline-variant/20 hover:border-outline-variant/50 transition-all duration-300" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="work">work</span>
+<span class="font-label-xs text-label-xs font-medium uppercase tracking-wider">Jobs</span>
+</div>
+<div class="bg-primary text-on-primary px-2.5 py-1 rounded-full font-label-xs text-label-xs font-medium">
+                            Applied
+                        </div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2 leading-tight">Product Designer @ Fractal</h2>
+<p class="font-body-base text-body-base text-on-surface-variant mb-4 line-clamp-2">Looking for a senior product designer to lead complex B2B workflow initiatives in the fintech space.</p>
+<div class="flex items-center justify-between mt-auto pt-3 border-t border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-4 h-4 rounded-full bg-surface-variant flex items-center justify-center text-[10px]">F</span>
+                            fractal.ai/careers
+                        </span>
+<span class="font-label-xs text-label-xs text-outline">2h ago</span>
+</div>
+</article>
+<!-- Card 2: Socials -->
+<article class="masonry-item group relative bg-surface-container-lowest rounded-xl p-card_padding border border-outline-variant/20 hover:border-outline-variant/50 transition-all duration-300" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="group">group</span>
+<span class="font-label-xs text-label-xs font-medium uppercase tracking-wider">Socials</span>
+</div>
+</div>
+<div class="rounded-lg overflow-hidden mb-3 bg-surface-container-highest aspect-[4/5]">
+<img alt="Abstract aesthetic photography" class="w-full h-full object-cover" data-alt="A moody, cinematic photograph featuring soft, ethereal lighting on vintage film. The composition focuses on abstract textures and muted pastel tones typical of a highly curated Instagram aesthetic. The scene is minimal, perhaps showing a blurred silhouette or delicate fabric against a plain background, exuding a sense of nostalgic melancholy and sophisticated artistry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFnM3VRuIEkUcF8OaTdJdVduRhZ1SYr7E3CwLgi1SZD2bEfQAU8-lPZSEGkFd_EPGcz4wphgwrGw9xFSl40XGXPjmdvjR4kX1KPU-6gw2hCG1vynOahGeiU5vcwQzGAeOEGcfTgpe4JHOUlUH4mdsoogFTWf4Z7EbPQminf3NNLuszWm9lPiV8YCVehzQwo4HcUXp74T3uIqhDhDK3DOCsXG9vpoGt1hB-fw4Y1n0dt87CCou3FisKyTCkmAptko7pmTSTX9htRmI4"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Lana Del Rey Instagram</h2>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">camera_alt</span>
+                            instagram.com
+                        </span>
+<span class="font-label-xs text-label-xs text-outline">Yesterday</span>
+</div>
+</article>
+<!-- Card 3: Videos (HOVER STATE SIMULATION) -->
+<article class="masonry-item relative bg-surface-container-lowest rounded-xl p-card_padding border border-primary/20 transition-all duration-300 transform scale-[1.01]" style="box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08); z-index: 10;">
+<!-- Persistent Hover Action Bar -->
+<div class="absolute top-3 right-3 flex items-center gap-1 bg-surface-container-lowest/90 backdrop-blur-sm shadow-sm rounded-full p-1 border border-outline-variant/20 z-20">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Pin">
+<span class="material-symbols-outlined text-[18px]" data-icon="push_pin">push_pin</span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-variant transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-error hover:bg-error-container transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+<div class="flex items-start justify-between mb-3 pr-24">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="play_circle">play_circle</span>
+<span class="font-label-xs text-label-xs font-medium uppercase tracking-wider">Videos</span>
+</div>
+</div>
+<div class="rounded-lg overflow-hidden mb-3 bg-surface-container-highest aspect-video relative">
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 z-10">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest/90 backdrop-blur flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[24px] text-primary" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<img alt="Productivity setup" class="w-full h-full object-cover" data-alt="A modern, brightly lit desk setup featuring a sleek laptop, a minimalist notebook, and a cup of black coffee. The environment is a clean, professional workspace bathed in natural daylight from an off-camera window. The color palette is dominated by whites, grays, and warm wood tones, conveying focus, efficiency, and contemporary work culture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSv-XZDZ7iewW8ohY8f0-BbfWeatCmqxwrGoxYzYpdLLCaPnrgPRUc1oIDVcPto-38iXN8eGwBuDlYMsrOZEx4w87DrwiRF3OdqXkTjKj5tGdNZgpCmi1PfSdG6H93s-YMoq9ya_rVJ4w8i_q17KNuXAFqAWq-VrFcoy8OEGVs_uMJ8VBPUgs_3wI0YdD_i-QQhqhEwtol-hzoY3qmOpQj69yjaxIhozwlZ-rSacmOyb0vt5EqphAkLBL9BV2qMW6pDcOftMPRDRb8"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">TEDx productivity video</h2>
+<p class="font-body-base text-body-base text-on-surface-variant mb-3 line-clamp-2">How to build a system that works for you, not against you.</p>
+<div class="flex items-center justify-between mt-auto pt-3 border-t border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">smart_display</span>
+                            youtube.com
+                        </span>
+<span class="font-label-xs text-label-xs text-outline">12:45</span>
+</div>
+</article>
+<!-- Card 4: Articles -->
+<article class="masonry-item group relative bg-surface-container-lowest rounded-xl p-card_padding border border-outline-variant/20 hover:border-outline-variant/50 transition-all duration-300" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="description">description</span>
+<span class="font-label-xs text-label-xs font-medium uppercase tracking-wider">Articles</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Color Theory 101</h2>
+<p class="font-body-base text-body-base text-on-surface-variant mb-4">An in-depth look at how humans perceive color, the history of color wheels, and practical applications in modern digital interface design. The article covers hue, saturation, lightness, and how to build accessible palettes.</p>
+<div class="flex items-center justify-between mt-auto pt-3 border-t border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-4 h-4 rounded-sm bg-tertiary flex items-center justify-center text-on-tertiary text-[10px] font-bold">M</span>
+                            medium.com
+                        </span>
+<span class="font-label-xs text-label-xs text-outline">Oct 12</span>
+</div>
+</article>
+<!-- Additional Dummy Card for Grid Filling -->
+<article class="masonry-item group relative bg-surface-container-lowest rounded-xl p-card_padding border border-outline-variant/20 hover:border-outline-variant/50 transition-all duration-300" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="folder_off">folder_off</span>
+<span class="font-label-xs text-label-xs font-medium uppercase tracking-wider">Uncategorized</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Receipt for Domain Renewal</h2>
+<div class="flex items-center justify-between mt-6 pt-3 border-t border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant">namecheap.com</span>
+<span class="font-label-xs text-label-xs text-outline">Mar 2023</span>
+</div>
+</article>
+<!-- Additional Dummy Card for Grid Filling -->
+<article class="masonry-item group relative bg-surface-container-lowest rounded-xl p-card_padding border border-outline-variant/20 hover:border-outline-variant/50 transition-all duration-300" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="description">description</span>
+<span class="font-label-xs text-label-xs font-medium uppercase tracking-wider">Articles</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">The Architecture of Calm</h2>
+<p class="font-body-base text-body-base text-on-surface-variant mb-4">Exploring minimalism in digital spaces and why reducing cognitive load is the ultimate luxury.</p>
+<div class="flex items-center justify-between mt-auto pt-3 border-t border-surface-variant">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">public</span>
+                            smashingmagazine.com
+                        </span>
+<span class="font-label-xs text-label-xs text-outline">4d ago</span>
+</div>
+</article>
+</div>
+</main>
+</div>
+</body></html>
