@@ -3,6 +3,7 @@ import type { JobStatus, Link } from '@/types/link';
 import { STATUS_CYCLE } from '@/types/link';
 import { StatusPill } from '@/components/StatusPill';
 import { CategoryTag } from '@/components/CategoryTag';
+import { CardMenu } from '@/components/CardMenu';
 import { PinIcon } from '@/components/icons';
 import { timeAgo } from '@/lib/format';
 import { useIsDesktop } from '@/hooks/useMediaQuery';
@@ -12,6 +13,7 @@ interface JobCardProps {
   onCycleStatus: (id: string) => void;
   onSetStatus: (id: string, status: JobStatus) => void;
   onTogglePin: (id: string) => void;
+  onDelete: (id: string) => void;
   onOpen: (link: Link) => void;
 }
 
@@ -23,6 +25,7 @@ export function JobCard({
   onCycleStatus,
   onSetStatus,
   onTogglePin,
+  onDelete,
   onOpen,
 }: JobCardProps) {
   const isDesktop = useIsDesktop();
@@ -81,22 +84,25 @@ export function JobCard({
 
       <div className="mt-auto flex items-center justify-between pt-1">
         <span className="text-label-xs text-ink-muted">Saved {timeAgo(link.createdAt)}</span>
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onTogglePin(link.id);
-          }}
-          aria-pressed={link.pinned}
-          aria-label={link.pinned ? 'Unpin' : 'Pin'}
-          className={`rounded-md p-1 transition-colors ${
-            link.pinned
-              ? 'text-ink'
-              : 'text-ink-muted opacity-0 group-hover:opacity-100 hover:text-ink'
-          }`}
-        >
-          <PinIcon className="h-4 w-4" />
-        </button>
+        <div className="flex items-center gap-0.5">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onTogglePin(link.id);
+            }}
+            aria-pressed={link.pinned}
+            aria-label={link.pinned ? 'Unpin' : 'Pin'}
+            className={`rounded-md p-1 transition-colors ${
+              link.pinned
+                ? 'text-ink'
+                : 'text-ink-muted opacity-0 group-hover:opacity-100 hover:text-ink'
+            }`}
+          >
+            <PinIcon className="h-4 w-4" />
+          </button>
+          <CardMenu link={link} onOpen={onOpen} onTogglePin={onTogglePin} onDelete={onDelete} />
+        </div>
       </div>
     </article>
   );
