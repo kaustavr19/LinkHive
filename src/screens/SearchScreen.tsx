@@ -1,6 +1,7 @@
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import type { Link } from '@/types/link';
 import { useLinks } from '@/store/useLinks';
+import { useUI } from '@/store/useUI';
 import { searchLinks } from '@/lib/search';
 import { useIsDesktop } from '@/hooks/useMediaQuery';
 import { SearchResultRow } from '@/components/cards/SearchResultRow';
@@ -11,12 +12,19 @@ export function SearchScreen() {
   const navigate = useNavigate();
   const isDesktop = useIsDesktop();
   const links = useLinks((s) => s.links);
+  const togglePin = useLinks((s) => s.togglePin);
+  const remove = useLinks((s) => s.remove);
+  const showToast = useUI((s) => s.showToast);
 
   const query = params.get('q') ?? '';
   const setQuery = (q: string) => setParams(q ? { q } : {}, { replace: true });
 
   const results = searchLinks(links, query);
   const openLink = (link: Link) => window.open(link.url, '_blank', 'noopener');
+  const handleDelete = (id: string) => {
+    void remove(id);
+    showToast('Link deleted');
+  };
 
   return (
     <>
@@ -43,7 +51,14 @@ export function SearchScreen() {
             )}
             <div className="mx-auto flex max-w-2xl flex-col gap-3">
               {results.map((link) => (
-                <SearchResultRow key={link.id} link={link} query={query} onOpen={openLink} />
+                <SearchResultRow
+                  key={link.id}
+                  link={link}
+                  query={query}
+                  onOpen={openLink}
+                  onTogglePin={togglePin}
+                  onDelete={handleDelete}
+                />
               ))}
             </div>
           </>

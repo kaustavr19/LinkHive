@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import type { Category, Link } from '@/types/link';
 import { CATEGORY_META } from '@/theme/categories';
 import { useLinks } from '@/store/useLinks';
+import { useUI } from '@/store/useUI';
 import { sortLinks } from '@/lib/search';
 import { useIsDesktop } from '@/hooks/useMediaQuery';
 import { LinkCard } from '@/components/cards/LinkCard';
@@ -22,6 +23,13 @@ export function HomeScreen({ mode }: { mode: Mode }) {
   const togglePin = useLinks((s) => s.togglePin);
   const cycleStatus = useLinks((s) => s.cycleStatus);
   const setStatus = useLinks((s) => s.setStatus);
+  const remove = useLinks((s) => s.remove);
+  const showToast = useUI((s) => s.showToast);
+
+  const handleDelete = (id: string) => {
+    void remove(id);
+    showToast('Link deleted');
+  };
 
   const activeCategory = (mode === 'category' ? (params.category as Category) : null) ?? null;
 
@@ -86,6 +94,7 @@ export function HomeScreen({ mode }: { mode: Mode }) {
                     onCycleStatus={cycleStatus}
                     onSetStatus={setStatus}
                     onTogglePin={togglePin}
+                    onDelete={handleDelete}
                     onOpen={openLink}
                   />
                 ) : (
@@ -93,6 +102,7 @@ export function HomeScreen({ mode }: { mode: Mode }) {
                     link={link}
                     tinted={mode === 'category'}
                     onTogglePin={togglePin}
+                    onDelete={handleDelete}
                     onOpen={openLink}
                   />
                 )}

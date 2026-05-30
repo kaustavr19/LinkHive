@@ -2,6 +2,7 @@ import type { Link } from '@/types/link';
 import { CATEGORY_META } from '@/theme/categories';
 import { CategoryIcon } from '@/components/CategoryIcon';
 import { CategoryTag } from '@/components/CategoryTag';
+import { CardMenu } from '@/components/CardMenu';
 import { LinkIcon } from '@/components/icons';
 import { matchField, type MatchField } from '@/lib/search';
 
@@ -18,19 +19,30 @@ export function SearchResultRow({
   link,
   query,
   onOpen,
+  onTogglePin,
+  onDelete,
 }: {
   link: Link;
   query: string;
   onOpen: (link: Link) => void;
+  onTogglePin: (id: string) => void;
+  onDelete: (id: string) => void;
 }) {
   const meta = CATEGORY_META[link.category];
   const field = matchField(link, query);
 
   return (
-    <button
-      type="button"
+    <div
+      role="button"
+      tabIndex={0}
       onClick={() => onOpen(link)}
-      className="flex w-full items-start gap-3 rounded-lg border border-line bg-surface p-4 text-left shadow-card transition-shadow hover:shadow-card-hover"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onOpen(link);
+        }
+      }}
+      className="flex w-full cursor-pointer items-start gap-3 rounded-lg border border-line bg-surface p-4 text-left shadow-card transition-shadow hover:shadow-card-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
       <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg ${meta.tint} ${meta.text}`}>
         <CategoryIcon category={link.category} className="h-5 w-5" />
@@ -45,6 +57,8 @@ export function SearchResultRow({
         </p>
         {field && <p className="mt-1 text-label-xs italic text-ink-muted">{MATCH_LABEL[field]}</p>}
       </div>
-    </button>
+
+      <CardMenu link={link} onOpen={onOpen} onTogglePin={onTogglePin} onDelete={onDelete} />
+    </div>
   );
 }

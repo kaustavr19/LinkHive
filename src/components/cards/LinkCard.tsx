@@ -2,6 +2,7 @@ import type { Link } from '@/types/link';
 import { CATEGORY_META } from '@/theme/categories';
 import { CategoryTag } from '@/components/CategoryTag';
 import { CategoryIcon } from '@/components/CategoryIcon';
+import { CardMenu } from '@/components/CardMenu';
 import { PinIcon } from '@/components/icons';
 import { timeAgo } from '@/lib/format';
 
@@ -10,11 +11,12 @@ interface LinkCardProps {
   // Single-category views give the card a faint category tint + accent edge.
   tinted?: boolean;
   onTogglePin: (id: string) => void;
+  onDelete: (id: string) => void;
   onOpen: (link: Link) => void;
 }
 
 // Neutral card for the All view; faintly tinted in single-category views.
-export function LinkCard({ link, tinted, onTogglePin, onOpen }: LinkCardProps) {
+export function LinkCard({ link, tinted, onTogglePin, onDelete, onOpen }: LinkCardProps) {
   const meta = CATEGORY_META[link.category];
 
   return (
@@ -40,22 +42,25 @@ export function LinkCard({ link, tinted, onTogglePin, onOpen }: LinkCardProps) {
 
       <div className="mt-auto flex items-center justify-between pt-1">
         <span className="text-label-xs text-ink-muted">{timeAgo(link.createdAt)}</span>
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onTogglePin(link.id);
-          }}
-          aria-pressed={link.pinned}
-          aria-label={link.pinned ? 'Unpin' : 'Pin'}
-          className={`rounded-md p-1 transition-colors ${
-            link.pinned
-              ? 'text-ink'
-              : 'text-ink-muted opacity-0 group-hover:opacity-100 hover:text-ink'
-          }`}
-        >
-          <PinIcon className="h-4 w-4" />
-        </button>
+        <div className="flex items-center gap-0.5">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onTogglePin(link.id);
+            }}
+            aria-pressed={link.pinned}
+            aria-label={link.pinned ? 'Unpin' : 'Pin'}
+            className={`rounded-md p-1 transition-colors ${
+              link.pinned
+                ? 'text-ink'
+                : 'text-ink-muted opacity-0 group-hover:opacity-100 hover:text-ink'
+            }`}
+          >
+            <PinIcon className="h-4 w-4" />
+          </button>
+          <CardMenu link={link} onOpen={onOpen} onTogglePin={onTogglePin} onDelete={onDelete} />
+        </div>
       </div>
     </article>
   );
