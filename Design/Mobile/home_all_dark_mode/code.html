@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LinkHive - Home (Dark Mode)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#747878",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#5f6161",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c9c6c5",
+                        "secondary-container": "#dcdddd",
+                        "surface-dim": "#dbdad9",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "secondary": "#5d5f5f",
+                        "surface-bright": "#fbf9f8",
+                        "on-primary-container": "#858383",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#454747",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary": "#000000",
+                        "surface-variant": "#e4e2e2",
+                        "on-tertiary-container": "#868381",
+                        "tertiary": "#000000",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-surface": "#1b1c1c",
+                        "inverse-surface": "#303031",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-container-highest": "#e4e2e2",
+                        "primary-container": "#1c1b1b",
+                        "surface-container": "#efeded",
+                        "surface": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#444748",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "secondary-fixed": "#e2e2e2",
+                        "background": "#fbf9f8",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary-container": "#1d1b1a",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "tertiary-fixed": "#e6e1df"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "gutter": "12px",
+                        "container-margin": "16px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "base": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "source-muted": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-xs": ["Inter"],
+                        "body-md": ["Inter"],
+                        "card-title": ["Inter"]
+                    },
+                    "fontSize": {
+                        "source-muted": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-xs": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "card-title": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom overrides for Dark Mode based on prompt specifics */
+        .dark body {
+            background-color: #0D0D0D; /* Base: #0D0D0D */
+            color: #ffffff;
+        }
+        .dark .elevated-surface {
+            background-color: #1A1A1A; /* Elevated surfaces for cards */
+        }
+        /* Muted colors for dark mode tags */
+        .tag-jobs { background-color: rgba(59, 130, 246, 0.15); color: #93C5FD; } /* Muted Blue */
+        .tag-socials { background-color: rgba(236, 72, 153, 0.15); color: #F9A8D4; } /* Muted Pink */
+        .tag-videos { background-color: rgba(239, 68, 68, 0.15); color: #FCA5A5; } /* Muted Red */
+        .tag-articles { background-color: rgba(245, 158, 11, 0.15); color: #FCD34D; } /* Muted Amber */
+        
+        .accent-bar-jobs { background-color: #3B82F6; }
+        .accent-bar-socials { background-color: #EC4899; }
+        .accent-bar-videos { background-color: #EF4444; }
+        .accent-bar-articles { background-color: #F59E0B; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col pt-14 pb-[56px] relative">
+<!-- Offline Sync Indicator (Subtle) -->
+<div class="fixed top-0 w-full h-[2px] bg-[#1A1A1A] z-[60]">
+<div class="h-full bg-primary-fixed-dim w-1/3 rounded-r-full"></div>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-[#0D0D0D] flex justify-between items-center px-container-margin h-14 flat no shadows transition-colors duration-300">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-[#1A1A1A] transition-colors rounded-full p-2 -ml-2 focus:outline-none focus:ring-2 focus:ring-primary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight">LinkHive</h1>
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-[#1A1A1A] transition-colors rounded-full p-2 -mr-2 focus:outline-none focus:ring-2 focus:ring-primary-fixed-dim">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-[600px] mx-auto px-container-margin py-lg flex flex-col gap-gutter">
+<!-- Search & Filter Area -->
+<div class="flex gap-sm mb-sm sticky top-[64px] z-40 bg-[#0D0D0D]/90 backdrop-blur-sm py-2">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-secondary-fixed-dim text-sm" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="w-full bg-[#1A1A1A] border-outline-variant/30 dark:border-secondary-fixed-dim/20 text-on-surface dark:text-white rounded-full py-2 pl-10 pr-4 font-body-md text-body-md focus:border-primary dark:focus:border-primary-fixed focus:ring-0 transition-colors placeholder:text-on-surface-variant/50 dark:placeholder:text-secondary-fixed-dim/50" placeholder="Search links..." type="text"/>
+</div>
+<button class="bg-[#1A1A1A] text-on-surface dark:text-primary-fixed border border-outline-variant/30 dark:border-secondary-fixed-dim/20 rounded-full px-4 flex items-center justify-center font-label-xs text-label-xs hover:bg-[#222222] transition-colors">
+<span class="material-symbols-outlined mr-1" style="font-size: 16px;">filter_list</span> Filter
+            </button>
+</div>
+<!-- Section: Recents (Bento-ish Grid) -->
+<section>
+<h2 class="font-label-xs text-label-xs text-on-surface-variant dark:text-secondary-fixed-dim uppercase tracking-wider mb-sm pl-1">Recently Saved</h2>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Bento Card 1: Jobs (Square) -->
+<article class="elevated-surface rounded-lg relative overflow-hidden flex flex-col p-4 border border-[#222222] hover:border-[#333333] transition-colors group cursor-pointer h-[140px]">
+<div class="absolute left-0 top-0 bottom-0 w-1 accent-bar-jobs"></div>
+<div class="flex justify-between items-start mb-auto">
+<div class="w-8 h-8 rounded bg-[#222222] flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-size: 18px;">work</span>
+</div>
+<span class="tag-jobs px-2 py-0.5 rounded-full font-label-xs text-label-xs">Jobs</span>
+</div>
+<div>
+<h3 class="font-card-title text-card-title text-white line-clamp-2 leading-tight mb-1 group-hover:text-[#93C5FD] transition-colors">Product Designer at Google</h3>
+<p class="font-source-muted text-source-muted text-secondary-fixed-dim truncate">careers.google.com</p>
+</div>
+</article>
+<!-- Bento Card 2: Socials (Square) -->
+<article class="elevated-surface rounded-lg relative overflow-hidden flex flex-col p-4 border border-[#222222] hover:border-[#333333] transition-colors group cursor-pointer h-[140px]">
+<div class="absolute left-0 top-0 bottom-0 w-1 accent-bar-socials"></div>
+<div class="flex justify-between items-start mb-auto">
+<div class="w-8 h-8 rounded bg-[#222222] flex items-center justify-center overflow-hidden">
+<img alt="Instagram logo" class="w-full h-full object-cover opacity-80" data-alt="Close up of a generic bright pink and orange gradient social media icon on a dark background, minimalist tech aesthetic, corporate modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjECeNNVaQt7k4Awa_l6n37svzGkfkUw-dFl2rt8nej1ark5P_tjA5pdeYNtCRuyXJ92RqnswpG2KXUyp4z5DmEhxHFx-LciDF4Zu44lwPak5IQ9-FdmVgmBFIFD2t0PUQ6b_gDVcVLgOMxNbKYhhPOjs4OfyeUbaYfcjkceTJGROOXKefRsyL4VBV2P7vhXY84el3PW-mHMyCTd0zQeWwR4B5eWt7ggxxTAe47Vp-ghAzzPao2V8oujf5g514APNqisiu7PWT6BcC"/>
+</div>
+<span class="tag-socials px-2 py-0.5 rounded-full font-label-xs text-label-xs">Socials</span>
+</div>
+<div>
+<h3 class="font-card-title text-card-title text-white line-clamp-2 leading-tight mb-1 group-hover:text-[#F9A8D4] transition-colors">Lana Del Rey</h3>
+<p class="font-source-muted text-source-muted text-secondary-fixed-dim truncate">instagram.com</p>
+</div>
+</article>
+</div>
+</section>
+<!-- Section: All Links (Standard Stack) -->
+<section class="mt-4">
+<h2 class="font-label-xs text-label-xs text-on-surface-variant dark:text-secondary-fixed-dim uppercase tracking-wider mb-sm pl-1">All Links</h2>
+<div class="flex flex-col gap-gutter">
+<!-- List Card 1: Articles -->
+<article class="elevated-surface rounded-lg relative flex items-center p-3 border border-[#222222] hover:border-[#333333] transition-colors group cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 accent-bar-articles rounded-l-lg"></div>
+<div class="w-10 h-10 rounded bg-[#222222] flex-shrink-0 flex items-center justify-center ml-2 mr-3 overflow-hidden">
+<span class="material-symbols-outlined text-[#FCD34D]" style="font-size: 20px;">article</span>
+</div>
+<div class="flex-grow min-w-0 pr-2">
+<h3 class="font-card-title text-card-title text-white truncate group-hover:text-[#FCD34D] transition-colors">The Future of Minimalist UI Design in 2024</h3>
+<p class="font-source-muted text-source-muted text-secondary-fixed-dim truncate">medium.com/design</p>
+</div>
+<div class="flex-shrink-0">
+<span class="tag-articles px-2 py-1 rounded-full font-label-xs text-label-xs hidden sm:inline-block">Articles</span>
+</div>
+<button class="ml-2 text-secondary-fixed-dim hover:text-white p-1 rounded-full hover:bg-[#333333] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</article>
+<!-- List Card 2: Videos -->
+<article class="elevated-surface rounded-lg relative flex items-center p-3 border border-[#222222] hover:border-[#333333] transition-colors group cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 accent-bar-videos rounded-l-lg"></div>
+<div class="w-10 h-10 rounded bg-[#222222] flex-shrink-0 flex items-center justify-center ml-2 mr-3 overflow-hidden relative">
+<img alt="YouTube" class="w-full h-full object-cover opacity-70 grayscale hover:grayscale-0 transition-all" data-alt="Abstract red play button icon on a dark grey background, representing a video platform, minimalist tech aesthetic, corporate modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-o04e2fxZ4aJ3PXuxJjX_N5x3yNI89s3Q21SKS5HJtjytOZzillSDBtUccO3whBqyxlxkBIQrb4fouRRilhmZvpQVpS0gfkUq9rjoKZfD2JoUSJRtzttUuIZ4e1Fre5VsCuqCKdNuSUV2zcjT6pts4Sj9HUQbELKRnGGNDGwuRsGtJVFdAA2DguxyH-T5Wd56eW6vuCbI9jRkS6zsvr1VC3lnhWXTCQgVW0CDLtVeC4WcgzpMbHWdGAZT6cjxGPJsde8eZZSNJ9G0"/>
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<div class="flex-grow min-w-0 pr-2">
+<h3 class="font-card-title text-card-title text-white truncate group-hover:text-[#FCA5A5] transition-colors">Tailwind CSS Advanced Layout Techniques</h3>
+<p class="font-source-muted text-source-muted text-secondary-fixed-dim truncate">youtube.com</p>
+</div>
+<div class="flex-shrink-0">
+<span class="tag-videos px-2 py-1 rounded-full font-label-xs text-label-xs hidden sm:inline-block">Videos</span>
+</div>
+<button class="ml-2 text-secondary-fixed-dim hover:text-white p-1 rounded-full hover:bg-[#333333] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</article>
+<!-- List Card 3: Jobs -->
+<article class="elevated-surface rounded-lg relative flex items-center p-3 border border-[#222222] hover:border-[#333333] transition-colors group cursor-pointer">
+<div class="absolute left-0 top-0 bottom-0 w-1 accent-bar-jobs rounded-l-lg"></div>
+<div class="w-10 h-10 rounded bg-[#222222] flex-shrink-0 flex items-center justify-center ml-2 mr-3">
+<span class="material-symbols-outlined text-[#93C5FD]" style="font-size: 20px;">work</span>
+</div>
+<div class="flex-grow min-w-0 pr-2">
+<h3 class="font-card-title text-card-title text-white truncate group-hover:text-[#93C5FD] transition-colors">Senior Front-End Engineer</h3>
+<p class="font-source-muted text-source-muted text-secondary-fixed-dim truncate">stripe.com/jobs</p>
+</div>
+<button class="ml-2 text-secondary-fixed-dim hover:text-white p-1 rounded-full hover:bg-[#333333] transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">more_vert</span>
+</button>
+</article>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (FAB) - Fixed Bottom Right, above BottomNav -->
+<button class="fixed bottom-[80px] right-container-margin w-14 h-14 bg-primary-fixed text-primary rounded-full flex justify-center items-center shadow-lg hover:scale-105 active:scale-95 transition-transform z-40 focus:outline-none focus:ring-4 focus:ring-primary-fixed-dim/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-container h-[56px] flat no shadows">
+<!-- Home (Active) -->
+<a aria-label="Home" class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full w-12 h-8 transition-all hover:bg-surface-variant dark:hover:bg-on-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<!-- Link -->
+<a aria-label="Link" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant w-12 h-8 transition-all hover:bg-surface-variant dark:hover:bg-on-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">link</span>
+</a>
+<!-- Content Paste -->
+<a aria-label="Content Paste" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant w-12 h-8 transition-all hover:bg-surface-variant dark:hover:bg-on-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">content_paste</span>
+</a>
+<!-- Target -->
+<a aria-label="Target" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant w-12 h-8 transition-all hover:bg-surface-variant dark:hover:bg-on-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">target</span>
+</a>
+<!-- Push Pin -->
+<a aria-label="Push Pin" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-secondary-fixed-variant w-12 h-8 transition-all hover:bg-surface-variant dark:hover:bg-on-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">push_pin</span>
+</a>
+</nav>
+<script>
+        // Simple script to toggle dark mode class on body if needed for testing, though it's hardcoded to dark class on HTML
+        // In a real app, this would tie into OS preferences or a user toggle.
+        document.documentElement.classList.add('dark');
+    </script>
+</body></html>

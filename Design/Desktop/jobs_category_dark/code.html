@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LinkHive - Jobs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#5f5e5e",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "on-primary-fixed": "#1c1b1b",
+                      "tertiary-fixed-dim": "#cac6c3",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "on-primary-fixed-variant": "#474646",
+                      "surface-bright": "#f9f9f9",
+                      "outline": "#747878",
+                      "on-surface-variant": "#444748",
+                      "surface-container-low": "#f3f3f3",
+                      "tertiary-container": "#1d1b1a",
+                      "surface-variant": "#e2e2e2",
+                      "on-primary-container": "#858383",
+                      "primary-fixed": "#e5e2e1",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#2f3131",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#e8e8e8",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#dadada",
+                      "secondary": "#5d5f5f",
+                      "tertiary-fixed": "#e6e1df",
+                      "surface-container": "#eeeeee",
+                      "on-secondary-fixed-variant": "#454747",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "on-background": "#1a1c1c",
+                      "tertiary": "#000000",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#e2e2e2",
+                      "secondary-container": "#dfe0e0",
+                      "inverse-primary": "#c9c6c5",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#1d1b1a",
+                      "on-tertiary-container": "#868381",
+                      "on-secondary-container": "#616363",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#1c1b1b",
+                      "background": "#f9f9f9",
+                      "primary": "#000000",
+                      "surface": "#f9f9f9",
+                      "outline-variant": "#c4c7c7",
+                      "on-surface": "#1a1c1c",
+                      "inverse-on-surface": "#f1f1f1",
+                      "primary-fixed-dim": "#c9c6c5",
+                      
+                      // Dark mode overrides (simulated for this specific request)
+                      "dark-bg": "#0D0D0D",
+                      "dark-surface": "#1A1A1A",
+                      "dark-surface-tint": "#242424",
+                      "dark-text": "#F3F3F3",
+                      "dark-text-muted": "#A0A0A0",
+                      "dark-primary": "#FFFFFF",
+                      "dark-border": "#333333",
+                      "dark-blue-tint": "#111827",
+                      "dark-blue-border": "#1E3A8A",
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "card_padding": "16px",
+                      "stack_gap": "12px",
+                      "container_max_width": "1440px",
+                      "margin": "32px",
+                      "gutter": "24px",
+                      "sidebar_width": "240px"
+              },
+              "fontFamily": {
+                      "body-medium": ["Inter"],
+                      "body-base": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "display-hero": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-xs": ["Inter"]
+              },
+              "fontSize": {
+                      "body-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "display-hero": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0D0D0D;
+            color: #F3F3F3;
+        }
+        
+        /* Custom Masonry Layout CSS */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .masonry-grid {
+                column-count: 4;
+            }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        
+        /* Glassmorphism utility for dark mode */
+        .glass-dark {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Job Card Styles */
+        .job-card {
+            background-color: #111827; /* Subtle dark blue tint */
+            border: 1px solid #1E3A8A; /* Dark blue border */
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .job-card:hover {
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.6);
+            border-color: #3B82F6;
+            transform: translateY(-2px);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0D0D0D;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex w-sidebar_width h-screen fixed left-0 top-0 bg-[#121212] border-r border-[#333333] flex-col gap-stack_gap p-card_padding z-50">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 mb-6 mt-2">
+<div class="w-8 h-8 rounded bg-dark-primary flex items-center justify-center text-dark-bg font-bold">
+                L
+            </div>
+<div>
+<h1 class="font-headline-md text-headline-md text-dark-text tracking-tight">LinkHive</h1>
+<p class="font-label-xs text-label-xs text-dark-text-muted">Refined Minimalism</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full py-2 px-4 mb-4 bg-dark-surface-tint hover:bg-[#333] text-dark-text font-body-medium text-body-medium rounded-DEFAULT transition-colors flex items-center justify-center gap-2 border border-dark-border">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            + Add link
+        </button>
+<!-- Main Navigation -->
+<div class="flex-1 flex flex-col gap-1 overflow-y-auto">
+<a class="flex items-center gap-3 py-2 px-4 text-dark-text-muted font-body-medium text-body-medium hover:bg-dark-surface-tint rounded-DEFAULT transition-colors scale-98 active:scale-95" href="#">
+<span class="material-symbols-outlined">apps</span>
+                All
+            </a>
+<a class="flex items-center gap-3 py-2 px-4 border-l-4 border-[#3B82F6] font-bold text-dark-text bg-[#111827] rounded-r-DEFAULT scale-98 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined text-[#3B82F6]">work</span>
+                Jobs
+            </a>
+<a class="flex items-center gap-3 py-2 px-4 text-dark-text-muted font-body-medium text-body-medium hover:bg-dark-surface-tint rounded-DEFAULT transition-colors scale-98 active:scale-95" href="#">
+<span class="material-symbols-outlined">group</span>
+                Socials
+            </a>
+<a class="flex items-center gap-3 py-2 px-4 text-dark-text-muted font-body-medium text-body-medium hover:bg-dark-surface-tint rounded-DEFAULT transition-colors scale-98 active:scale-95" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+                Videos
+            </a>
+<a class="flex items-center gap-3 py-2 px-4 text-dark-text-muted font-body-medium text-body-medium hover:bg-dark-surface-tint rounded-DEFAULT transition-colors scale-98 active:scale-95" href="#">
+<span class="material-symbols-outlined">description</span>
+                Articles
+            </a>
+<a class="flex items-center gap-3 py-2 px-4 text-dark-text-muted font-body-medium text-body-medium hover:bg-dark-surface-tint rounded-DEFAULT transition-colors scale-98 active:scale-95" href="#">
+<span class="material-symbols-outlined">folder_off</span>
+                Uncategorized
+            </a>
+</div>
+<!-- Footer Navigation -->
+<div class="mt-auto pt-4 border-t border-dark-border flex flex-col gap-1">
+<h3 class="font-label-xs text-label-xs text-dark-text-muted uppercase px-4 py-2 mb-1 tracking-wider">Collections</h3>
+<a class="flex items-center gap-3 py-2 px-4 text-dark-text-muted font-body-medium text-body-medium hover:bg-dark-surface-tint rounded-DEFAULT transition-colors scale-98 active:scale-95" href="#">
+<span class="material-symbols-outlined">push_pin</span>
+                Pinned
+            </a>
+<a class="flex items-center gap-3 py-2 px-4 text-dark-text-muted font-body-medium text-body-medium hover:bg-dark-surface-tint rounded-DEFAULT transition-colors scale-98 active:scale-95" href="#">
+<span class="material-symbols-outlined">schedule</span>
+                Recent
+            </a>
+</div>
+<!-- User Profile -->
+<div class="mt-4 flex items-center gap-3 px-4 py-3 hover:bg-dark-surface-tint rounded-DEFAULT cursor-pointer transition-colors border border-transparent hover:border-dark-border">
+<div class="w-8 h-8 rounded-full bg-dark-border overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close up portrait of a professional individual looking slightly off camera, styled in a minimalist and clean aesthetic. The lighting is soft and studio-quality, casting subtle shadows that define the facial features. The background is a pure, solid dark neutral tone, ensuring the subject stands out sharply." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_wxVrUV1s1fQssLXH0A7CZtln1eWhue9ZAipwcLLCLEckqoIsmUp7ne-Chr0GLt4tVn-oaHXGMRS0Jn8yYo1MKT9qJ1dBKI0ai_j_6HksWA-FsDaLjmbZobjny-RGC4E37EYYap8FZXxQ_3tlx4f3xPleXqRUm7MtGbOPwN7Mz8HRs-xvoDHlCmoUzovRokR0QMTPVGAvAKkU_YpgFuA3B6222eQuV8dxDcI657arnff-0F2eemtKQYst-zqwnbAdbVeJD2TQ2d8M"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="font-body-medium text-body-medium text-dark-text truncate">user@example.com</p>
+</div>
+<span class="material-symbols-outlined text-dark-text-muted text-[18px]">settings</span>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-sidebar_width min-h-screen relative w-full md:max-w-[calc(100%-240px)]">
+<!-- TopNavBar (Search Hero) -->
+<header class="h-20 sticky top-0 z-40 glass-dark flex items-center justify-between px-margin w-full">
+<!-- Search Input -->
+<div class="flex-1 max-w-2xl relative group focus-within:ring-2 focus-within:ring-[#3B82F6] focus-within:ring-opacity-20 transition-all rounded-DEFAULT">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-dark-text-muted group-focus-within:text-[#3B82F6] transition-colors">search</span>
+<input class="w-full bg-dark-surface-tint border-none text-dark-text font-display-hero text-display-hero py-3 pl-12 pr-4 rounded-DEFAULT focus:ring-0 placeholder:text-dark-text-muted/50 transition-all outline-none" placeholder="Search saved jobs..." type="text"/>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4 ml-6">
+<button class="text-dark-text-muted hover:text-dark-text transition-colors p-2 rounded hover:bg-dark-surface-tint">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="text-dark-text-muted hover:text-dark-text transition-colors p-2 rounded hover:bg-dark-surface-tint">
+<span class="material-symbols-outlined">sort</span>
+</button>
+</div>
+</header>
+<!-- Canvas / Feed -->
+<div class="p-gutter pt-8">
+<!-- Page Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-display-hero text-display-hero text-dark-text mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-[#3B82F6]">work</span>
+                        Job Applications
+                    </h2>
+<p class="font-body-base text-body-base text-dark-text-muted">Tracking your career opportunities.</p>
+</div>
+<!-- Quick Filters -->
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-full bg-[#111827] border border-[#1E3A8A] text-[#60A5FA] font-label-sm text-label-sm hover:bg-[#1E3A8A] transition-colors">
+                        Applied (4)
+                    </button>
+<button class="px-3 py-1.5 rounded-full bg-dark-surface-tint text-dark-text-muted border border-dark-border font-label-sm text-label-sm hover:bg-[#333] transition-colors">
+                        Interviewing (1)
+                    </button>
+<button class="px-3 py-1.5 rounded-full bg-dark-surface-tint text-dark-text-muted border border-dark-border font-label-sm text-label-sm hover:bg-[#333] transition-colors">
+                        Rejected (2)
+                    </button>
+</div>
+</div>
+<!-- Masonry Grid -->
+<div class="masonry-grid">
+<!-- Job Card 1 -->
+<article class="masonry-item job-card p-card_padding flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="px-2 py-1 rounded bg-[#1E3A8A]/30 text-[#60A5FA] font-label-xs text-label-xs uppercase tracking-wider border border-[#1E3A8A]/50">
+                            Jobs
+                        </span>
+<!-- Status Marker: Applied -->
+<span class="px-2 py-1 rounded-full bg-[#3B82F6] text-white font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">send</span>
+                            Applied
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-dark-text mb-1 leading-tight">Senior Product Designer</h3>
+<p class="font-body-medium text-body-medium text-dark-text-muted flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">business</span>
+                            Acme Corp
+                        </p>
+</div>
+<div class="flex justify-between items-center mt-2 pt-3 border-t border-[#1E3A8A]/30">
+<span class="font-label-sm text-label-sm text-dark-text-muted">greenhouse.io</span>
+<span class="font-label-xs text-label-xs text-dark-text-muted">2 days ago</span>
+</div>
+</article>
+<!-- Job Card 2 -->
+<article class="masonry-item job-card p-card_padding flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="px-2 py-1 rounded bg-[#1E3A8A]/30 text-[#60A5FA] font-label-xs text-label-xs uppercase tracking-wider border border-[#1E3A8A]/50">
+                            Jobs
+                        </span>
+<!-- Status Marker: Interviewing -->
+<span class="px-2 py-1 rounded-full bg-[#8B5CF6] text-white font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">forum</span>
+                            Interviewing
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-dark-text mb-1 leading-tight">UX Researcher</h3>
+<p class="font-body-medium text-body-medium text-dark-text-muted flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">business</span>
+                            Globex
+                        </p>
+</div>
+<div class="bg-dark-surface-tint/50 p-3 rounded text-sm text-dark-text font-body-base text-body-base border border-dark-border/50">
+                        Initial screen scheduled for Thursday 2PM EST with Sarah.
+                    </div>
+<div class="flex justify-between items-center mt-2 pt-3 border-t border-[#1E3A8A]/30">
+<span class="font-label-sm text-label-sm text-dark-text-muted">workday.com</span>
+<span class="font-label-xs text-label-xs text-dark-text-muted">5 days ago</span>
+</div>
+</article>
+<!-- Job Card 3 -->
+<article class="masonry-item job-card p-card_padding flex flex-col gap-4 opacity-75 hover:opacity-100">
+<div class="flex justify-between items-start">
+<span class="px-2 py-1 rounded bg-[#1E3A8A]/30 text-[#60A5FA] font-label-xs text-label-xs uppercase tracking-wider border border-[#1E3A8A]/50">
+                            Jobs
+                        </span>
+<!-- Status Marker: Rejected -->
+<span class="px-2 py-1 rounded-full bg-[#EF4444] text-white font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+                            Rejected
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-dark-text mb-1 leading-tight line-through decoration-dark-text-muted">Lead UI Designer</h3>
+<p class="font-body-medium text-body-medium text-dark-text-muted flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">business</span>
+                            Initech
+                        </p>
+</div>
+<div class="flex justify-between items-center mt-2 pt-3 border-t border-[#1E3A8A]/30">
+<span class="font-label-sm text-label-sm text-dark-text-muted">lever.co</span>
+<span class="font-label-xs text-label-xs text-dark-text-muted">1 week ago</span>
+</div>
+</article>
+<!-- Job Card 4 -->
+<article class="masonry-item job-card p-card_padding flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="px-2 py-1 rounded bg-[#1E3A8A]/30 text-[#60A5FA] font-label-xs text-label-xs uppercase tracking-wider border border-[#1E3A8A]/50">
+                            Jobs
+                        </span>
+<!-- Status Marker: Applied -->
+<span class="px-2 py-1 rounded-full bg-[#3B82F6] text-white font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">send</span>
+                            Applied
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-dark-text mb-1 leading-tight">Design Systems Engineer</h3>
+<p class="font-body-medium text-body-medium text-dark-text-muted flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">business</span>
+                            Soylent Corp
+                        </p>
+</div>
+<div class="flex justify-between items-center mt-2 pt-3 border-t border-[#1E3A8A]/30">
+<span class="font-label-sm text-label-sm text-dark-text-muted">ashbyhq.com</span>
+<span class="font-label-xs text-label-xs text-dark-text-muted">Just now</span>
+</div>
+</article>
+<!-- Job Card 5 -->
+<article class="masonry-item job-card p-card_padding flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="px-2 py-1 rounded bg-[#1E3A8A]/30 text-[#60A5FA] font-label-xs text-label-xs uppercase tracking-wider border border-[#1E3A8A]/50">
+                            Jobs
+                        </span>
+<!-- Status Marker: Applied -->
+<span class="px-2 py-1 rounded-full bg-[#3B82F6] text-white font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">send</span>
+                            Applied
+                        </span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-dark-text mb-1 leading-tight">Product Designer (Remote)</h3>
+<p class="font-body-medium text-body-medium text-dark-text-muted flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">business</span>
+                            Umbrella Corp
+                        </p>
+</div>
+<div class="flex justify-between items-center mt-2 pt-3 border-t border-[#1E3A8A]/30">
+<span class="font-label-sm text-label-sm text-dark-text-muted">boards.greenhouse.io</span>
+<span class="font-label-xs text-label-xs text-dark-text-muted">3 days ago</span>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Hidden on md+) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-[#121212] border-t border-[#333333] z-50 flex justify-around items-center h-16 px-4">
+<a class="flex flex-col items-center gap-1 text-dark-text-muted" href="#">
+<span class="material-symbols-outlined">apps</span>
+<span class="font-label-xs text-label-xs">All</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#3B82F6]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-label-xs text-label-xs font-bold">Jobs</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-dark-text-muted" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-xs text-label-xs">Socials</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-dark-text-muted" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-xs text-label-xs">More</span>
+</a>
+</nav>
+</body></html>

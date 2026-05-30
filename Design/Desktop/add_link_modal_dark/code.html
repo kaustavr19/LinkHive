@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Link Modal</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-primary-fixed": "#1c1b1b",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-bright": "#f9f9f9",
+                        "outline": "#747878",
+                        "on-surface-variant": "#444748",
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary-container": "#1d1b1a",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-container": "#858383",
+                        "primary-fixed": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3131",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "secondary": "#5d5f5f",
+                        "tertiary-fixed": "#e6e1df",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1a1c1c",
+                        "tertiary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e2e2e2",
+                        "secondary-container": "#dfe0e0",
+                        "inverse-primary": "#c9c6c5",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "on-tertiary-container": "#868381",
+                        "on-secondary-container": "#616363",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "background": "#f9f9f9",
+                        "primary": "#000000",
+                        "surface": "#f9f9f9",
+                        "outline-variant": "#c4c7c7",
+                        "on-surface": "#1a1c1c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#c9c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "card_padding": "16px",
+                        "stack_gap": "12px",
+                        "container_max_width": "1440px",
+                        "margin": "32px",
+                        "gutter": "24px",
+                        "sidebar_width": "240px"
+                    },
+                    "fontFamily": {
+                        "body-medium": ["Inter"],
+                        "body-base": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-hero": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-xs": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-medium": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "body-base": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-hero": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-xs": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-base antialiased overflow-hidden">
+<!-- Background UI (Simulating the underlying app) -->
+<div aria-hidden="true" class="h-screen w-full flex select-none pointer-events-none">
+<!-- Mock Sidebar -->
+<aside class="w-sidebar_width h-screen bg-surface-container border-r border-outline-variant flex flex-col gap-stack_gap p-card_padding shrink-0 hidden md:flex">
+<div class="mb-8 px-4">
+<h1 class="font-display-hero text-display-hero text-primary tracking-tight">LinkHive</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Refined Minimalism</p>
+</div>
+<nav class="flex flex-col gap-2">
+<div class="flex items-center gap-3 py-2 px-4 border-l-4 border-primary font-body-medium text-body-medium text-on-surface">
+<span class="material-symbols-outlined">apps</span>
+                    All
+                </div>
+<div class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-body-medium text-body-medium">
+<span class="material-symbols-outlined">work</span>
+                    Jobs
+                </div>
+<div class="flex items-center gap-3 py-2 px-4 text-on-surface-variant font-body-medium text-body-medium">
+<span class="material-symbols-outlined">description</span>
+                    Articles
+                </div>
+</nav>
+</aside>
+<!-- Mock Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Mock Top Nav -->
+<header class="h-20 flex items-center justify-between px-margin border-b border-outline-variant/30">
+<div class="w-96 h-10 bg-surface-container rounded-full flex items-center px-4 gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">search</span>
+<span class="font-body-base text-body-base">Search your links...</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-primary-fixed"></div>
+</div>
+</header>
+<!-- Mock Grid Content -->
+<div class="flex-1 p-margin overflow-hidden relative">
+<div class="columns-1 md:columns-2 lg:columns-3 gap-gutter">
+<!-- Mock Card 1 -->
+<div class="break-inside-avoid mb-gutter rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-card_padding shadow-sm h-48 flex flex-col justify-between">
+<div>
+<span class="inline-block px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-xs text-label-xs mb-3">Articles</span>
+<div class="font-body-medium text-body-medium line-clamp-2">Understanding Deep Learning Architectures</div>
+</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant">medium.com</div>
+</div>
+<!-- Mock Card 2 -->
+<div class="break-inside-avoid mb-gutter rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm overflow-hidden h-64 flex flex-col">
+<div class="h-32 bg-surface-variant w-full bg-cover bg-center" data-alt="A close-up abstract view of swirling, vibrant liquid colors predominantly in deep blues and vivid purples. The texture is smooth and glossy, with dynamic lighting creating bright, reflective highlights along the curves of the fluid. The overall mood is energetic, modern, and artistic, perfectly suited for a creative digital agency portfolio thumbnail." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3xXcgo5Ozwwazhvvw48-S0yCDAE2gtmj6MpapMzlJKpqDY4Hqc6T6KSQyBu64uDT_d6_oFkYIZ91ZNksyKn2ovuMxbkYT7ckH6bsVKF6ZxoY7pKmYiMGSH8lHQMdVsu1jMaPMqsij2FWf5fOsPmtZmZYHQwAWTbfw1DzKsECwVWbWaog3goPjj--u8EVxSPnBAYpFQPhxyxAl6UFRHSx_VupEvSEOdxcJwWkHRtQwBHzvFde4gcnaZzloi-UdaOdoqjRA9GlnIYSC');"></div>
+<div class="p-card_padding flex-1 flex flex-col justify-between">
+<div class="font-body-medium text-body-medium line-clamp-2">Abstract Fluid Dynamics in Modern Web Design</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant">awwwards.com</div>
+</div>
+</div>
+<!-- Mock Card 3 -->
+<div class="break-inside-avoid mb-gutter rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-card_padding shadow-sm h-40 flex flex-col justify-between">
+<div>
+<span class="inline-block px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-xs text-label-xs mb-3">Jobs</span>
+<div class="font-body-medium text-body-medium line-clamp-2">Senior Frontend Engineer - Remote</div>
+</div>
+<div class="font-label-xs text-label-xs text-on-surface-variant">careers.google.com</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Overlay & Modal Container -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-primary/70 backdrop-blur-md transition-opacity">
+<!-- Modal Base (Dark Theme using designated config colors) -->
+<!-- bg-tertiary-container represents the #1A1A1A dark background requested, using system tokens -->
+<div class="w-full max-w-[480px] bg-tertiary-container rounded-xl shadow-2xl flex flex-col overflow-hidden transform transition-all scale-100">
+<!-- Header -->
+<div class="flex items-center justify-between px-6 py-5 border-b border-outline/20">
+<h2 class="font-headline-md text-headline-md text-on-tertiary">Add new link</h2>
+<button aria-label="Close modal" class="text-on-tertiary-container hover:text-on-tertiary transition-colors rounded-full p-1 hover:bg-on-tertiary/10 outline-none focus-visible:ring-2 focus-visible:ring-primary-fixed">
+<span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+</button>
+</div>
+<!-- Body -->
+<div class="px-6 py-6 flex flex-col gap-6">
+<!-- URL Input -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-tertiary-container" for="url-input">URL</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-on-tertiary-container" style="font-size: 18px;">link</span>
+<input autocomplete="off" class="w-full bg-inverse-surface border border-outline-variant/40 rounded-lg py-2.5 pl-10 pr-4 font-body-base text-body-base text-on-tertiary placeholder:text-on-tertiary-container/50 focus:border-outline focus:ring-1 focus:ring-outline outline-none transition-all" id="url-input" placeholder="https://example.com" type="url"/>
+</div>
+</div>
+<!-- Title Input -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-tertiary-container" for="title-input">Title <span class="text-on-tertiary-container/50 font-normal">(Optional)</span></label>
+<input class="w-full bg-inverse-surface border border-outline-variant/40 rounded-lg px-4 py-2.5 font-body-base text-body-base text-on-tertiary placeholder:text-on-tertiary-container/50 focus:border-outline focus:ring-1 focus:ring-outline outline-none transition-all" id="title-input" placeholder="Leave blank to auto-fetch" type="text"/>
+</div>
+<!-- Category/Folder Tag (Minimalist representation) -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-tertiary-container">Save to</label>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-inverse-surface border border-outline-variant/30 text-on-tertiary-container hover:text-on-tertiary hover:border-outline-variant/60 transition-colors font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-size: 16px;">folder</span>
+                            Uncategorized
+                            <span class="material-symbols-outlined ml-1" style="font-size: 14px;">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="flex items-center justify-end gap-3 px-6 py-5 border-t border-outline/20 bg-tertiary-container/50">
+<button class="font-body-medium text-body-medium text-on-tertiary-container hover:text-on-tertiary px-4 py-2 rounded-lg transition-colors outline-none focus-visible:ring-2 focus-visible:ring-outline">
+                    Cancel
+                </button>
+<!-- Primary Action - Using primary-fixed for visibility on dark background per design system intent for high contrast -->
+<button class="font-body-medium text-body-medium bg-primary-fixed text-primary px-5 py-2 rounded-lg hover:bg-surface-bright transition-colors shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-primary-fixed focus-visible:ring-offset-2 focus-visible:ring-offset-tertiary-container flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">check</span>
+                    Save link
+                </button>
+</div>
+</div>
+</div>
+</body></html>

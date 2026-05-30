@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   THEME TOKENS
+   Colors are space-separated RGB channels so Tailwind's <alpha-value> works
+   (powers the per-category tints, e.g. bg-category-jobs/10). Light is the
+   default; .dark on <html> flips the neutral surfaces. Category + status accent
+   hues are functional and only nudged brighter in dark mode for contrast.
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Neutral surfaces — light */
+  --c-canvas: 249 249 249;
+  --c-surface: 255 255 255;
+  --c-surface-alt: 243 243 243;
+  --c-sidebar: 240 240 240;
+  --c-ink: 26 28 28;
+  --c-ink-muted: 68 71 72;
+  --c-line: 226 226 226;
+  --c-primary: 13 13 13;
+  --c-on-primary: 255 255 255;
+
+  /* Category accents — light */
+  --c-jobs: 37 99 235;
+  --c-socials: 219 39 119;
+  --c-videos: 220 38 38;
+  --c-articles: 217 119 6;
+  --c-uncategorized: 107 114 128;
+
+  /* Status accents — light */
+  --c-status-applied: 22 163 74;
+  --c-status-not-applied: 217 119 6;
+  --c-status-rejected: 220 38 38;
+}
+
+.dark {
+  /* Neutral surfaces — dark (depth via lighter surface, not shadow) */
+  --c-canvas: 13 13 13;
+  --c-surface: 26 26 26;
+  --c-surface-alt: 36 36 36;
+  --c-sidebar: 20 20 20;
+  --c-ink: 241 241 241;
+  --c-ink-muted: 161 161 161;
+  --c-line: 42 42 42;
+  --c-primary: 245 245 245;
+  --c-on-primary: 13 13 13;
+
+  /* Category accents — dark (brighter for contrast on near-black) */
+  --c-jobs: 96 165 250;
+  --c-socials: 244 114 182;
+  --c-videos: 248 113 113;
+  --c-articles: 251 191 36;
+  --c-uncategorized: 156 163 175;
+
+  /* Status accents — dark */
+  --c-status-applied: 74 222 128;
+  --c-status-not-applied: 251 191 36;
+  --c-status-rejected: 248 113 113;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-canvas text-ink font-sans antialiased;
+}
+
+/* Hide scrollbars on the horizontal mobile chip rail while keeping scroll. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

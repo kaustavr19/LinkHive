@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LinkHive - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#747878",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#5f6161",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#c9c6c5",
+                      "secondary-container": "#dcdddd",
+                      "surface-dim": "#dbdad9",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "surface-container-high": "#e9e8e7",
+                      "secondary": "#5d5f5f",
+                      "surface-bright": "#fbf9f8",
+                      "on-primary-container": "#858383",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#454747",
+                      "primary-fixed": "#e5e2e1",
+                      "on-primary-fixed-variant": "#474646",
+                      "on-primary-fixed": "#1c1b1b",
+                      "primary": "#000000",
+                      "surface-variant": "#e4e2e2",
+                      "on-tertiary-container": "#868381",
+                      "tertiary": "#000000",
+                      "tertiary-fixed-dim": "#cac6c3",
+                      "on-surface": "#1b1c1c",
+                      "inverse-surface": "#303031",
+                      "surface-container-low": "#f5f3f3",
+                      "surface-container-highest": "#e4e2e2",
+                      "primary-container": "#1c1b1b",
+                      "surface-container": "#efeded",
+                      "surface": "#fbf9f8",
+                      "on-background": "#1b1c1c",
+                      "on-surface-variant": "#444748",
+                      "inverse-on-surface": "#f2f0f0",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c4c7c7",
+                      "secondary-fixed": "#e2e2e2",
+                      "background": "#fbf9f8",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "surface-tint": "#5f5e5e",
+                      "tertiary-container": "#1d1b1a",
+                      "on-tertiary-fixed": "#1d1b1a",
+                      "tertiary-fixed": "#e6e1df"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "gutter": "12px",
+                      "container-margin": "16px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "base": "4px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "source-muted": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "label-xs": ["Inter"],
+                      "body-md": ["Inter"],
+                      "card-title": ["Inter"]
+              },
+              "fontSize": {
+                      "source-muted": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-xs": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "card-title": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+        }
+        /* Custom category tag colors to match constraints while staying minimal */
+        .tag-jobs { border-left-color: #3b82f6; }
+        .tag-socials { border-left-color: #ec4899; }
+        .tag-videos { border-left-color: #ef4444; }
+        .tag-articles { border-left-color: #f59e0b; }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md bg-background text-on-background pb-[72px]">
+<!-- TopAppBar -->
+<header class="bg-surface text-primary font-headline-sm text-headline-sm docked full-width top-0 bg-surface flat no shadows flex justify-between items-center w-full px-container-margin h-14 z-50 sticky">
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-sm rounded-full flex items-center justify-center active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">LinkHive</h1>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<button class="hover:bg-surface-container-high transition-colors p-sm rounded-full flex items-center justify-center active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<button class="hover:bg-surface-container-high transition-colors p-sm rounded-full flex items-center justify-center active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="sort">sort</span>
+</button>
+<button class="hover:bg-surface-container-high transition-colors p-sm rounded-full flex items-center justify-center active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="px-container-margin py-md flex flex-col gap-lg">
+<!-- Filters -->
+<section class="flex gap-sm overflow-x-auto pb-xs scrollbar-hide -mx-container-margin px-container-margin" style="scrollbar-width: none;">
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-primary text-on-primary font-label-xs text-label-xs border border-transparent">All</button>
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs border border-outline-variant hover:bg-surface-container transition-colors">Jobs</button>
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs border border-outline-variant hover:bg-surface-container transition-colors">Socials</button>
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs border border-outline-variant hover:bg-surface-container transition-colors">Videos</button>
+<button class="whitespace-nowrap px-md py-xs rounded-full bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs border border-outline-variant hover:bg-surface-container transition-colors">Articles</button>
+</section>
+<!-- Bento Grid Cards -->
+<section class="grid grid-cols-2 gap-gutter">
+<!-- Card 1: Jobs -->
+<article class="bg-surface-container-lowest border border-surface-container rounded-lg p-sm flex flex-col gap-sm border-l-4 tag-jobs shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 bg-surface-container rounded flex items-center justify-center text-primary overflow-hidden shrink-0">
+<img alt="Google Logo Placeholder" class="w-full h-full object-cover" data-alt="A clean, minimalist corporate environment showing an abstract letter G logo in bright primary colors against a stark white background. Soft studio lighting highlights the modern, organized aesthetic. The mood is professional and efficient, aligned with a polished, minimalist digital workspace. Deep blacks and clean whites dominate, with subtle accents of primary colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdgcFO-qr7H3xXkMpZ2MAONOm-BXcHaXAR-26EOLmsIGkQVlpamfFTB1cZL207Z4Ec9-fKKbAsT3RpeBM9A6xccKVSTjIedQUB-REcQg1tu6uZ0EsWhTQq0wkRDmBan2gMVhXVA1K6xzNBX2A0Gie22VrQw6PkdFHiaXgfWmJ81ELpQOoU9o-kgodKzI5iizfobocGxckZ2-vMIqj2_z9wFgrWoFdg6fWyaOWXpWCUxsZTyh8mew_EZaPbG7TlrpOTKIki3g2WMHB1"/>
+</div>
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div>
+<h2 class="font-card-title text-card-title text-on-surface line-clamp-2">Product Designer at Google</h2>
+<p class="font-source-muted text-source-muted text-on-surface-variant mt-xs">careers.google.com</p>
+</div>
+</article>
+<!-- Card 2: Socials -->
+<article class="bg-surface-container-lowest border border-surface-container rounded-lg p-sm flex flex-col gap-sm border-l-4 tag-socials shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 bg-surface-container rounded flex items-center justify-center text-primary overflow-hidden shrink-0">
+<img alt="Vinyl Record" class="w-full h-full object-cover" data-alt="A stylish, minimalist top-down view of a vintage vinyl record on a clean white surface, conveying a sense of artistic social media presence. The lighting is soft and diffused, creating a calm, curated mood. The color palette is strictly neutral, focusing on blacks, whites, and subtle grays, fitting a modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCOIqJwn5-hXKYQdjaKIeJRu0HDD0l5qyotSduefNrZa-chb5Jtu8nxN6fouK5vK1Mlr7Hhsgg3fiT6YUsvYJJZc4pc8_5zib7n_mPgQLeFQBeCA1U2Obb3geyRco6i_UqrqmaRQlsY9lhyV27VZ0VKaihpCw8ZsuOpsf4Vf0gXmtavZ3Fx5kB4Zpl8GrNyhGdvZ4nmKZWaJp281Y37IWktcw9Xjoc0Ks3Pg2LiF43XeH6Uhd2mJwnqKzukLgT9KzNgzKUwO1xWjh7"/>
+</div>
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div>
+<h2 class="font-card-title text-card-title text-on-surface line-clamp-2">Lana Del Rey</h2>
+<p class="font-source-muted text-source-muted text-on-surface-variant mt-xs">instagram.com</p>
+</div>
+</article>
+<!-- Card 3: Videos -->
+<article class="bg-surface-container-lowest border border-surface-container rounded-lg p-sm flex flex-col gap-sm border-l-4 tag-videos shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 bg-surface-container rounded flex items-center justify-center text-primary overflow-hidden shrink-0">
+<img alt="Microchip" class="w-full h-full object-cover" data-alt="A macro shot of a sleek computer microchip on an austere white background, representing productivity and technology. The lighting is crisp and even, emphasizing clean lines and structured information. The mood is analytical and calm, completely adhering to a minimalist corporate modern style with stark contrast between deep blacks and pristine whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPJ99Xaoto0vISs_NXgmjTLJa-h0t4RF7nQ5IsMGEoyDM_L5-L-oTlTu_7_oTFtML6Pdi3V5ASQEp0sr4wbNvKiVw5Ot6NzkiqqFF35B5sWhz8LQBtHI-dVQiJJXZn0C31f_Fu6EpC29sknyQfugaMqGxFhHbV4Xz3VdutZ0ZKjvqijTWKjJkQF9TYEdj6GbjFeK0GaLBgnwuLoHLhZLHr5NwHW8UStM_HUlA7IsAA-WnKOqZods-sXWP9edqMJnt02cfrc_X-NznU"/>
+</div>
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div>
+<h2 class="font-card-title text-card-title text-on-surface line-clamp-2">TEDx: Productivity</h2>
+<p class="font-source-muted text-source-muted text-on-surface-variant mt-xs">youtube.com</p>
+</div>
+</article>
+<!-- Card 4: Articles -->
+<article class="bg-surface-container-lowest border border-surface-container rounded-lg p-sm flex flex-col gap-sm border-l-4 tag-articles shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 bg-surface-container rounded flex items-center justify-center text-primary overflow-hidden shrink-0">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div>
+<h2 class="font-card-title text-card-title text-on-surface line-clamp-2">Color Theory 101</h2>
+<p class="font-source-muted text-source-muted text-on-surface-variant mt-xs">medium.com</p>
+</div>
+</article>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-[80px] right-container-margin w-[56px] h-[56px] bg-primary text-on-primary rounded-full flex items-center justify-center shadow-md hover:bg-surface-tint transition-colors z-40 active:scale-95">
+<span class="material-symbols-outlined text-[24px]" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="bg-surface text-primary font-label-xs text-label-xs docked full-width bottom-0 h-[56px] bg-surface flat no shadows fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 border-t border-surface-container">
+<!-- Active Tab: home -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full w-12 h-8 hover:bg-surface-variant transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+</button>
+<!-- Inactive Tabs -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-8 hover:bg-surface-variant transition-all active:scale-90 duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-8 hover:bg-surface-variant transition-all active:scale-90 duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="content_paste">content_paste</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-8 hover:bg-surface-variant transition-all active:scale-90 duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="target">target</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-8 hover:bg-surface-variant transition-all active:scale-90 duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="push_pin">push_pin</span>
+</button>
+</nav>
+</body></html>

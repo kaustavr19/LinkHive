@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Save Link Sheet</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#747878",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#484645",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#5f6161",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#c9c6c5",
+                    "secondary-container": "#dcdddd",
+                    "surface-dim": "#dbdad9",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-container-high": "#e9e8e7",
+                    "secondary": "#5d5f5f",
+                    "surface-bright": "#fbf9f8",
+                    "on-primary-container": "#858383",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#454747",
+                    "primary-fixed": "#e5e2e1",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-primary-fixed": "#1c1b1b",
+                    "primary": "#000000",
+                    "surface-variant": "#e4e2e2",
+                    "on-tertiary-container": "#868381",
+                    "tertiary": "#000000",
+                    "tertiary-fixed-dim": "#cac6c3",
+                    "on-surface": "#1b1c1c",
+                    "inverse-surface": "#303031",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-container-highest": "#e4e2e2",
+                    "primary-container": "#1c1b1b",
+                    "surface-container": "#efeded",
+                    "surface": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "on-surface-variant": "#444748",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c4c7c7",
+                    "secondary-fixed": "#e2e2e2",
+                    "background": "#fbf9f8",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "surface-tint": "#5f5e5e",
+                    "tertiary-container": "#1d1b1a",
+                    "on-tertiary-fixed": "#1d1b1a",
+                    "tertiary-fixed": "#e6e1df"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "gutter": "12px",
+                    "container-margin": "16px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "base": "4px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "source-muted": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "label-xs": ["Inter"],
+                    "body-md": ["Inter"],
+                    "card-title": ["Inter"]
+            },
+            "fontSize": {
+                    "source-muted": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-xs": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "card-title": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-tertiary-container antialiased selection:bg-surface-tint selection:text-surface-bright h-screen w-screen overflow-hidden flex justify-center bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9InBhdHRlcm4iIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBoNDBNNDAgaDBNMCAwaDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')]">
+<div class="w-full max-w-[390px] h-full relative shadow-2xl bg-tertiary-container overflow-hidden flex flex-col">
+<header class="flex justify-between items-center w-full px-container-margin h-14 z-10 pt-sm">
+<h1 class="font-headline-sm text-headline-sm text-surface-bright tracking-tight">Recent</h1>
+<button class="w-10 h-10 rounded-full bg-inverse-surface flex items-center justify-center text-surface-bright border border-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+</header>
+<main class="flex-1 px-container-margin pt-gutter flex flex-col gap-gutter opacity-40 blur-[1px]">
+<div class="bg-inverse-surface rounded-lg p-sm border-l-[4px] border-surface-tint flex gap-sm items-start">
+<div class="w-10 h-10 rounded bg-tertiary-container flex items-center justify-center border border-on-tertiary-fixed-variant flex-shrink-0">
+<span class="material-symbols-outlined text-surface-bright text-[20px]">article</span>
+</div>
+<div class="flex flex-col gap-xs">
+<h3 class="font-body-md text-body-md text-surface-bright line-clamp-2 leading-tight">Understanding Minimalist Typography in Dense Data Interfaces</h3>
+<span class="font-label-xs text-label-xs text-surface-dim">uxdesign.cc</span>
+</div>
+</div>
+<div class="bg-inverse-surface rounded-lg p-sm border-l-[4px] border-on-tertiary-fixed-variant flex gap-sm items-start">
+<div class="w-10 h-10 rounded bg-tertiary-container flex items-center justify-center border border-on-tertiary-fixed-variant flex-shrink-0">
+<span class="material-symbols-outlined text-surface-bright text-[20px]">video_library</span>
+</div>
+<div class="flex flex-col gap-xs">
+<h3 class="font-body-md text-body-md text-surface-bright line-clamp-2 leading-tight">Grid Systems for Mobile First Design Patterns</h3>
+<span class="font-label-xs text-label-xs text-surface-dim">youtube.com</span>
+</div>
+</div>
+</main>
+<div aria-hidden="true" class="absolute inset-0 bg-primary/70 backdrop-blur-[2px] z-40 animate-fade-in"></div>
+<div class="absolute bottom-0 left-0 right-0 bg-inverse-surface rounded-t-[20px] z-50 animate-slide-up flex flex-col shadow-[0_-8px_32px_rgba(0,0,0,0.4)]">
+<div class="w-full flex justify-center pt-sm pb-gutter">
+<div class="w-12 h-1 bg-on-tertiary-fixed-variant rounded-full opacity-60"></div>
+</div>
+<div class="px-container-margin pb-[36px] flex flex-col">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-sm text-headline-sm text-surface-bright">Save Link</h2>
+<button class="text-surface-dim hover:text-surface-bright transition-colors rounded-full p-xs">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="mb-container-margin">
+<label class="block font-label-xs text-label-xs text-surface-dim mb-xs uppercase tracking-wider">URL Destination</label>
+<div class="flex items-center bg-tertiary-container border border-on-tertiary-fixed-variant rounded-lg p-sm focus-within:border-surface-tint transition-colors group">
+<span class="material-symbols-outlined text-surface-dim mr-sm text-[20px] group-focus-within:text-surface-bright transition-colors">link</span>
+<input class="bg-transparent border-none outline-none focus:ring-0 text-surface-bright font-body-md text-body-md w-full truncate placeholder-surface-dim p-0" readonly="" type="url" value="https://dribbble.com/shots/23491-Minimal-Architecture-Portfolio-Concept"/>
+</div>
+</div>
+<div class="mb-xl">
+<label class="block font-label-xs text-label-xs text-surface-dim mb-xs uppercase tracking-wider">Auto-detected Category</label>
+<div class="inline-flex items-center gap-xs px-gutter py-[6px] rounded-full bg-surface-tint/20 border border-surface-tint/40 text-surface-bright cursor-pointer hover:bg-surface-tint/30 transition-colors">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+<span class="font-card-title text-card-title text-[13px]">Design</span>
+</div>
+</div>
+<button class="w-full bg-surface-bright text-primary font-card-title text-card-title py-[14px] rounded-lg flex items-center justify-center gap-sm hover:bg-surface-container-highest active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined icon-fill text-[20px]">bookmark_add</span>
+<span>Save to Archive</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

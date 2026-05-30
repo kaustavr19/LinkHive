@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Search - LinkHive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#747878",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#5f6161",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#c9c6c5",
+                        "secondary-container": "#dcdddd",
+                        "surface-dim": "#dbdad9",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "secondary": "#5d5f5f",
+                        "surface-bright": "#fbf9f8",
+                        "on-primary-container": "#858383",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#454747",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary": "#000000",
+                        "surface-variant": "#e4e2e2",
+                        "on-tertiary-container": "#868381",
+                        "tertiary": "#000000",
+                        "tertiary-fixed-dim": "#cac6c3",
+                        "on-surface": "#1b1c1c",
+                        "inverse-surface": "#303031",
+                        "surface-container-low": "#f5f3f3",
+                        "surface-container-highest": "#e4e2e2",
+                        "primary-container": "#1c1b1b",
+                        "surface-container": "#efeded",
+                        "surface": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#444748",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "secondary-fixed": "#e2e2e2",
+                        "background": "#fbf9f8",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary-container": "#1d1b1a",
+                        "on-tertiary-fixed": "#1d1b1a",
+                        "tertiary-fixed": "#e6e1df"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "gutter": "12px",
+                        "container-margin": "16px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "base": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "source-muted": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-xs": ["Inter"],
+                        "body-md": ["Inter"],
+                        "card-title": ["Inter"]
+                    },
+                    "fontSize": {
+                        "source-muted": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-xs": ["11px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "card-title": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); -webkit-font-smoothing: antialiased; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .category-bar-design { background-color: #2563eb; }
+        .category-bar-dev { background-color: #16a34a; }
+        .category-bar-reading { background-color: #d97706; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-md w-full max-w-[390px] mx-auto relative overflow-hidden bg-background">
+<!-- Search Top Bar (Transactional / Focused state) -->
+<header class="bg-surface docked full-width top-0 w-full z-50 flex flex-col px-container-margin py-3 border-b border-surface-variant">
+<div class="flex items-center gap-3">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant flex-shrink-0" onclick="window.history.back()">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant pointer-events-none text-[20px]" style="font-variation-settings: 'FILL' 0;">search</span>
+<input autofocus="" class="w-full h-11 pl-10 pr-10 bg-surface-container rounded-full border-none text-on-surface focus:ring-1 focus:ring-primary focus:outline-none font-body-md text-body-md placeholder:text-on-surface-variant" id="searchInput" placeholder="Search your links..." type="text" value="ui design"/>
+<button class="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full bg-surface-variant text-on-surface-variant hover:bg-surface-container-highest" id="clearSearch">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto hide-scrollbar w-full pt-2 pb-lg">
+<!-- Results List -->
+<div class="px-container-margin flex flex-col gap-gutter" id="searchResults">
+<!-- Result Item 1 -->
+<div class="bg-surface rounded-lg border border-surface-variant hover:bg-surface-container-lowest transition-colors flex overflow-hidden cursor-pointer">
+<div class="w-1 h-full category-bar-design flex-shrink-0"></div>
+<div class="p-3 flex items-start gap-3 flex-1">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center overflow-hidden flex-shrink-0 border border-surface-variant">
+<img alt="Figma Thumbnail" class="w-full h-full object-cover" data-alt="A macro shot of a sleek modern laptop screen displaying abstract UI design components. The screen emits a soft, cool glow against a minimalist dark grey desk setup. Clean lines, geometric shapes, and a highly polished professional aesthetic. The mood is focused and creative, fitting for a design tool context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFol1YlPBA1323zjUYL9sJEJHsNWq59ce1wraeyadEBL39nPId9sJ3x6Fy6c1Fq_FgoENnXqVxtARhifHcSHx6CSW2NSTU6JK4lf-Ao9Vy-1HXfTb_WB00vEKfgVudIAuwYsa_5gfyNiacMdGMP5dySDCIzCO6D-DjPa23dCS5Bts4l79wkdTzyhgWpccRs2vrSGjDxsQRSckKJyihlnznPgTiDtLSCftIkEw19GuzCVoHEjWDsqQmQEwp7ik6eYWssESOdQ8aKb5C"/>
+</div>
+<div class="flex-1 min-w-0 flex flex-col gap-1">
+<div class="flex items-center justify-between gap-2">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-label-xs text-label-xs border border-blue-100 uppercase tracking-wider">Design</span>
+</div>
+<h3 class="font-card-title text-card-title text-on-surface truncate">Figma UI Kit - Minimalist Dashboard</h3>
+<p class="font-source-muted text-source-muted text-on-surface-variant truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                            figma.com/community/file...
+                        </p>
+<p class="font-label-xs text-label-xs text-secondary italic mt-0.5">Matches name</p>
+</div>
+</div>
+</div>
+<!-- Result Item 2 -->
+<div class="bg-surface rounded-lg border border-surface-variant hover:bg-surface-container-lowest transition-colors flex overflow-hidden cursor-pointer">
+<div class="w-1 h-full category-bar-dev flex-shrink-0"></div>
+<div class="p-3 flex items-start gap-3 flex-1">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center overflow-hidden flex-shrink-0 border border-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">article</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col gap-1">
+<div class="flex items-center justify-between gap-2">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-green-50 text-green-700 font-label-xs text-label-xs border border-green-100 uppercase tracking-wider">Dev</span>
+</div>
+<h3 class="font-card-title text-card-title text-on-surface truncate">Building Accessible UI Components</h3>
+<p class="font-source-muted text-source-muted text-on-surface-variant truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                            smashingmagazine.com/2023...
+                        </p>
+<p class="font-label-xs text-label-xs text-secondary italic mt-0.5">Matches source</p>
+</div>
+</div>
+</div>
+<!-- Result Item 3 -->
+<div class="bg-surface rounded-lg border border-surface-variant hover:bg-surface-container-lowest transition-colors flex overflow-hidden cursor-pointer">
+<div class="w-1 h-full category-bar-reading flex-shrink-0"></div>
+<div class="p-3 flex items-start gap-3 flex-1">
+<div class="w-10 h-10 rounded bg-surface-container-highest flex items-center justify-center overflow-hidden flex-shrink-0 border border-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">palette</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col gap-1">
+<div class="flex items-center justify-between gap-2">
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-xs text-label-xs border border-amber-100 uppercase tracking-wider">Reading</span>
+</div>
+<h3 class="font-card-title text-card-title text-on-surface truncate">The History of UI Design</h3>
+<p class="font-source-muted text-source-muted text-on-surface-variant truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                            medium.com/design-history...
+                        </p>
+<p class="font-label-xs text-label-xs text-secondary italic mt-0.5">Matches category</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden initially, shown by JS logic if search is empty) -->
+<div class="hidden flex-col items-center justify-center h-full pt-xl px-container-margin text-center" id="emptyState">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface-variant text-[32px]" style="font-variation-settings: 'FILL' 0;">search</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-2">Search your links</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[250px]">by name, source, or category</p>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const clearBtn = document.getElementById('clearSearch');
+            const searchResults = document.getElementById('searchResults');
+            const emptyState = document.getElementById('emptyState');
+
+            // Force focus to end of text
+            const val = searchInput.value;
+            searchInput.value = '';
+            searchInput.value = val;
+            searchInput.focus();
+
+            function toggleViews() {
+                if (searchInput.value.trim().length > 0) {
+                    searchResults.classList.remove('hidden');
+                    searchResults.classList.add('flex');
+                    emptyState.classList.add('hidden');
+                    emptyState.classList.remove('flex');
+                    clearBtn.style.display = 'flex';
+                } else {
+                    searchResults.classList.add('hidden');
+                    searchResults.classList.remove('flex');
+                    emptyState.classList.remove('hidden');
+                    emptyState.classList.add('flex');
+                    clearBtn.style.display = 'none';
+                }
+            }
+
+            searchInput.addEventListener('input', toggleViews);
+            
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                toggleViews();
+                searchInput.focus();
+            });
+
+            // Initial check
+            toggleViews();
+        });
+    </script>
+</body></html>
