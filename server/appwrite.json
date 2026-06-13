@@ -1,0 +1,60 @@
+{
+  "projectId": "",
+  "projectName": "LinkHive",
+  "functions": [
+    {
+      "name": "links-api",
+      "runtime": "node-18.0",
+      "path": "src/functions/links-api.ts",
+      "entrypoint": "dist/functions/links-api.js",
+      "execute": ["users"],
+      "events": [],
+      "schedule": "",
+      "timeout": 60,
+      "variables": {
+        "APPWRITE_DATABASE_ID": "linkhive_db",
+        "APPWRITE_COLLECTION_LINKS": "links"
+      }
+    },
+    {
+      "name": "enrich-link",
+      "runtime": "node-18.0",
+      "path": "src/functions/enrich-link.ts",
+      "entrypoint": "dist/functions/enrich-link.js",
+      "execute": [],
+      "events": [
+        "databases.linkhive_db.collections.links.documents.*.create"
+      ],
+      "schedule": "",
+      "timeout": 30,
+      "variables": {
+        "APPWRITE_DATABASE_ID": "linkhive_db",
+        "APPWRITE_COLLECTION_LINKS": "links"
+      }
+    }
+  ],
+  "databases": [
+    {
+      "id": "linkhive_db",
+      "name": "LinkHive DB"
+    }
+  ],
+  "collections": [
+    {
+      "databaseId": "linkhive_db",
+      "id": "links",
+      "name": "Links"
+    },
+    {
+      "databaseId": "linkhive_db",
+      "id": "user_profiles",
+      "name": "User Profiles"
+    }
+  ],
+  "buckets": [
+    {
+      "id": "link_thumbnails",
+      "name": "Link Thumbnails"
+    }
+  ]
+}

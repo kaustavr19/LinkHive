@@ -1,18 +1,26 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import type { Category } from '@/types/link';
 import { CATEGORIES } from '@/types/link';
 import { CATEGORY_META } from '@/theme/categories';
 import { useLinks } from '@/store/useLinks';
 import { useUI } from '@/store/useUI';
+import { useAuth } from '@/store/useAuth';
 import { CategoryIcon } from '@/components/CategoryIcon';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import { GridIcon, PinIcon, PlusIcon, HiveIcon } from '@/components/icons';
+import { GridIcon, PinIcon, PlusIcon, HiveIcon, LogoutIcon } from '@/components/icons';
 
 // Desktop left sidebar (240px): brand, Add link, category nav with counts,
 // Pinned, theme toggle.
 export function Sidebar() {
   const links = useLinks((s) => s.links);
   const openAdd = useUI((s) => s.openAdd);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
 
   const countFor = (c: Category) => links.filter((l) => l.category === c).length;
   const pinnedCount = links.filter((l) => l.pinned).length;
@@ -56,9 +64,24 @@ export function Sidebar() {
         <SideItem to="/pinned" icon={<PinIcon className="h-5 w-5" />} label="Pinned" count={pinnedCount} />
       </nav>
 
-      <div className="mt-auto flex items-center justify-between border-t border-line pt-3">
-        <span className="px-2 text-label-xs text-ink-muted">Theme</span>
-        <ThemeToggle />
+      <div className="mt-auto border-t border-line pt-3">
+        {user && (
+          <div className="mb-2 flex items-center justify-between px-2">
+            <span className="truncate text-body-small text-ink-muted">{user.name || user.email}</span>
+            <button
+              type="button"
+              onClick={handleLogout}
+              title="Sign out"
+              className="rounded-md p-1.5 text-ink-muted transition-colors hover:bg-surface-alt hover:text-ink"
+            >
+              <LogoutIcon className="h-4 w-4" />
+            </button>
+          </div>
+        )}
+        <div className="flex items-center justify-between">
+          <span className="px-2 text-label-xs text-ink-muted">Theme</span>
+          <ThemeToggle />
+        </div>
       </div>
     </aside>
   );

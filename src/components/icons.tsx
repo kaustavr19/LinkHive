@@ -164,3 +164,11 @@ export const HiveIcon = (p: IconProps) => (
     <path d="M17 11.5l4 2.3v4.6L17 20.7l-4-2.1V14z" />
   </svg>
 );
+
+export const LogoutIcon = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+    <polyline points="16 17 21 12 16 7" />
+    <line x1="21" y1="12" x2="9" y2="12" />
+  </svg>
+);

@@ -1,0 +1,28 @@
+{
+  "name": "linkhive-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/dev/server.ts",
+    "dev": "tsx watch src/dev/server.ts",
+    "setup": "tsx src/setup/init-db.ts",
+    "deploy:functions": "tsx src/setup/deploy-functions.ts",
+    "seed": "tsx src/setup/seed.ts",
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "node-appwrite": "^14.0.0",
+    "node-html-parser": "^6.1.13",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.41",
+    "dotenv": "^16.4.5",
+    "tar": "^7.5.16",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.4",
+    "vitest": "^2.1.1"
+  }
+}
